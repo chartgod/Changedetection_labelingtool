@@ -64,7 +64,7 @@ To install PyQt5, use the following command:
 
 ```bash
 pip install PyQt5
-
+```
 
 ## ⌨️ Key Bindings
 
