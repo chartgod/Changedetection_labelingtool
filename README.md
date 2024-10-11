@@ -85,4 +85,41 @@ The tool also supports several keyboard shortcuts to make the labeling process f
 
 These keyboard shortcuts help streamline the workflow, allowing you to quickly switch between tools and functions without relying on mouse actions alone.
 
+📅 Update 10/11
+
+We are excited to announce several new features and improvements to the Change Detection Tool, enhancing usability and efficiency for your labeling tasks.
+
+1. Undo/Redo Functionality While Drawing Polygons 🔄
+New Feature: You can now use Ctrl+Z to Undo and Ctrl+Y to Redo while drawing polygons.
+Details:
+In the ImageBox class, the keyPressEvent method has been updated to handle Undo/Redo actions even during the polygon drawing process.
+The points of the currently drawn line are managed using the self.line list. Undo removes the last point, and Redo restores it.
+2. Improved Layout and User Interface 🖥️
+Changes: Utilized QSplitter to create a more intuitive layout between the image display area and the tool panel.
+Benefit: Enhanced user interface makes the tool more convenient to use.
+3. Simultaneous Loading of Image Pairs 🖼️🖼️
+New Feature: Load Base Image and Temporary B images as pairs for synchronized comparison.
+Details:
+Added the load_image_pair method to load images from both lists simultaneously based on their indices.
+Displays a warning message if the number of images in the two lists does not match.
+4. Improved Saving of Labels for All Images 💾
+Changes: Enhanced functionality to save labels for all images, not just the current one.
+Details:
+Modified the savepoint method to iterate over self.image_labels and save labels for each image.
+Images without labels are skipped during the save process.
+5. Better Unicode Filename Handling 🌐
+Changes: Improved image loading to correctly handle filenames containing Unicode characters, such as Korean.
+Details:
+Used np.fromfile and cv2.imdecode to load images, ensuring proper handling of Unicode paths.
+6. Added Class Selection Buttons 🔘
+New Feature: Introduced quick-select buttons for classes (Buildings, Roads, Green Spaces, Wildfire Damage, Water Bodies).
+Benefit: Easier and faster class switching during labeling.
+7. Keyboard Shortcuts for Class Selection ⌨️
+New Feature: Use number keys 1-5 to quickly switch between classes.
+Details:
+The keyPressEvent method in the change_detection class now handles number key inputs to change the current class.
+8. Other Improvements ✨
+Enhanced Zoom Functionality: Adjusted the wheelEvent method for smoother zooming.
+Improved Polygon Selection: Enhanced highlighting when selecting polygons from the label list.
+Automatic Label Loading: When loading images, existing labels are automatically loaded if available.
 
